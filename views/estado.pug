@@ -1,11 +1,21 @@
-extends layout
-
-block content
-  p Bateria
-  p Generacion de energia
-
-  p Barra inferior
-  form(method='GET' action='/login')
-    button.btn.btn-primary(type='submit') Hotspot
-    button.btn.btn-primary(type='submit') Estado
-    button.btn.btn-primary(type='submit') Configuracion
+doctype html
+html(lang='en')
+  head
+    title Jade
+    script(type='text/javascript').
+      foo = true;
+      bar = function () {};
+      if (foo) {
+      bar(1 + 5)
+      }
+  body
+    #battery-status-bar
+      .battery
+        .power
+          .level
+      .percentage
+      .time
+      form(method='GET' action='/login')
+      button.btn.btn-primary(type='submit') Hotspot
+      button.btn.btn-primary(type='submit') Estado
+      button.btn.btn-primary(type='submit') Configuracion

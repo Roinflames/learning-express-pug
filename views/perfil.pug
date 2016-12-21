@@ -1,0 +1,15 @@
+extends layout
+title Jade
+    script(type='text/javascript').
+      foo = true;
+      bar = function () {};
+      if (foo) {
+      bar(1 + 5)
+      }
+block content
+#battery-status-bar
+		 .battery
+			 .power
+				 .level
+		 .percentage
+		 .time

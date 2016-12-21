@@ -20,7 +20,7 @@ module.exports = function(passport){
                     // already exists
                     if (user) {
                         console.log('User already exists with username: '+username);
-                        return done(null, false, req.flash('message','User Already Exists'));
+                        return done(null, false, req.flash('message','El usuario ya existe'));
                     } else {
                         // if there is no user with that email
                         // create the user
@@ -30,16 +30,16 @@ module.exports = function(passport){
                         newUser.username = username;
                         newUser.password = createHash(password);
                         newUser.email = req.param('email');
-                        newUser.firstName = req.param('firstName');
-                        newUser.lastName = req.param('lastName');
+                        //newUser.firstName = req.param('firstName');
+                        //newUser.lastName = req.param('lastName');
 
                         // save the user
                         newUser.save(function(err) {
                             if (err){
-                                console.log('Error in Saving user: '+err);  
-                                throw err;  
+                                console.log('Error al guardar el usuario: '+err);
+                                throw err;
                             }
-                            console.log('User Registration succesful');    
+                            console.log('Usuario correctamente registrado');
                             return done(null, newUser);
                         });
                     }

@@ -1,33 +1,72 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  title Battery API example
-div
-  div
-    button#estado
-      | Estado de la batería
-  #resultado
-script.
-  var button = document.getElementById('estado');
-  var resultado = document.getElementById('resultado');
-  var battery = navigator.battery || navigator.webkitBattery || navigator.mozBattery || navigator.msBattery;
-  var checkStatus = function(){ // esta función creará nuestro HTML inicial para mostrar el estado
-  resultado.innerHTML = '<div><ul>'+
-  '<li id="level">Nivel de batería: ' + Math.floor(battery.level * 100) + '%</li>'+
-  '<li id="charging">El aparato está: ' + (battery.charging ? "cargandose": "descargandose") + '</li>'+
-  '</ul></div>';
-  };
-  if (battery) {
-  button.onclick = function(){
-  checkStatus();  // generamos el HTML inicial con su estado
-  // Luego lo actualizamos si detectamos un cambio en el estado de cargado/descargado
-  battery.addEventListener('chargingchange', function(){
-  document.getElementById('charging').innerHTML = 'El aparato está: ' + (battery.charging ? "cargandose": "descargandose");
-  });
-  }
-  } else {
-  button.onclick = function(){ //Si no soporta el API renderizamos un mensaje informativo.
-  resultado.innerHTML = '<div><h2>Tu Browser no soporta este API</h2></div>';
-  }
-  }
-  
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    title Historico
+    script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js')
+    style(type='text/css').
+      ${demo.css}
+    script(type='text/javascript').
+      $(function () {
+      Highcharts.chart('container', {
+      chart: {
+      type: 'column'
+      },
+      title: {
+      text: 'Energía generada'
+      },
+      subtitle: {
+      text: 'UTEM 2016-17'
+      },
+      xAxis: {
+      type: 'category',
+      labels: {
+      rotation: 0,
+      style: {
+      fontSize: '13px',
+      fontFamily: 'Verdana, sans-serif'
+      }
+      }
+      },
+      yAxis: {
+      min: 0,
+      title: {
+      text: 'Energia generada (kW)'
+      }
+      },
+      legend: {
+      enabled: false
+      },
+      tooltip: {
+      pointFormat: 'Generacion de energia: <b>{point.y:.1f}</b>'
+      },
+      series: [{
+      name: 'Dia',
+      data: [
+      ['Lunes', 23.7],
+      ['Martes', 16.1],
+      ['Miercoles', 14.2],
+      ['Jueves', 14.0],
+      ['Viernes', 12.5],
+      ['Sabado', 12.1],
+      ['Domingo', 11.8]
+      ],
+      dataLabels: {
+      enabled: true,
+      rotation: 0,
+      color: '#FFFFFF',
+      align: 'center',
+      format: '{point.y:.1f}', // one decimal
+      y: 10, // 10 pixels down from the top
+      style: {
+      fontSize: '13px',
+      fontFamily: 'Verdana, sans-serif'
+      }
+      }
+      }]
+      });
+      });
+  body
+    script(src='https://code.highcharts.com/highcharts.js')
+    script(src='https://code.highcharts.com/modules/exporting.js')
+    #container(style='min-width: 300px; height: 400px; margin: 0 auto')

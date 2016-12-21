@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        h1.display-4.m-b-2 #{title} Login
+
+        // login form
+        form(method='GET' action='/login')
+          div.form-group
+            label(for='email') Email:
+            input#email.form-control(type='email', placeholder='Email' name='email')
+          div.form-group
+            label(for='pw') Password:
+            input#pw.form-control(type='password', placeholder='password' name='password')
+          div.form-group
+            label(for='rememberme') Recuerdame:
+          div.form-group
+            label(for='forget') Olvidó su password?
+          button.btn.btn-primary(type='submit') Ingresar
+  div
+    p Crear Cuenta
+    p Usar sin Registro

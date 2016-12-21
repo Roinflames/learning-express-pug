@@ -58,8 +58,8 @@ module.exports = function(passport){
   	res.render('historico');
 	});
 
-	router.get('/perfil', function(req, res) {
-  	res.render('perfil');
+	router.get('/perfil', isAuthenticated, function(req, res){
+		res.render('perfil', { user: req.user });
 	});
 
 	return router;

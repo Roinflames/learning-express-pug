@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var dbConfig = require('./db');
 var mongoose = require('mongoose');
 // Connect to DB
-mongoose.connect(dbConfig.url);
+//mongoose.connect(dbConfig.url);
 
 var app = express();
 
@@ -16,7 +16,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(favicon());
+//app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());

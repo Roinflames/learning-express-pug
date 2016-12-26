@@ -23,17 +23,20 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Arduino read data
+// Arduino read json data
+
 fs = require('fs')
 fs.readFile('/home/pird-admin/Documentos/Express.js/learning-express-pug/public/json/data.json', 'utf8', function (err,data) {
   if (err) {
     return console.log(err);
   }
-  var arduino = data;
-  console.log(a);
+  var arduino = JSON.parse(data);
+  for (var i in arduino) {
+   console.log (arduino.dia.medicion.Lunes);
+}
+  //console.log(result);
 });
 
-// Configuring Passport
 var passport = require('passport');
 var expressSession = require('express-session');
 // TODO - Why Do we need this key ?
@@ -72,7 +75,7 @@ if (app.get('env') === 'development') {
     });
 }
 app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+  console.log('Escuchando en puerto 3000!')
 })
 
 module.exports = app;

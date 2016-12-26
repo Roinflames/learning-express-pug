@@ -62,5 +62,9 @@ module.exports = function(passport){
 		res.render('perfil', { user: req.user });
 	});
 
+	router.get('/arduino', function(req, res){
+		res.render('arduino', { title: 'Hey', message: 'you'});
+	});
+		
 	return router;
 }

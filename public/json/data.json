@@ -1,7 +1,27 @@
-['Lunes', 10],
-['Martes', 10],
-['Miercoles', 14.2],
-['Jueves', 14.0],
-['Viernes', 12.5],
-['Sabado', 12.1],
-['Domingo', 11.8]
+{
+  "dia" : {
+    "medicion" : {
+      "Lunes" : [
+        2.5
+      ],
+      "Martes" : [
+        2
+      ],
+      "Miercoles" : [
+        1.75
+      ],
+      "Jueves" : [
+        1.75
+      ],
+      "Viernes" : [
+        1.75
+      ],
+      "Sabado" : [
+        1.75
+      ],
+      "Domingo" : [
+        1.75
+      ]
+    }
+  }
+}

@@ -8,6 +8,15 @@ html
       ${demo.css}
     script(type='text/javascript').
       $(function () {
+
+      var lunes = 10;
+      var martes = 10;
+      var miercoles = 10;
+      var jueves = 10;
+      var viernes = 10;
+      var sabado = 10;
+      var domingo = 10;
+            
       Highcharts.chart('container', {
       chart: {
       type: 'column'
@@ -43,13 +52,13 @@ html
       series: [{
       name: 'Dia',
       data: [
-      ['Lunes', 10],
-      ['Martes', 16.1],
-      ['Miercoles', 14.2],
-      ['Jueves', 14.0],
-      ['Viernes', 12.5],
-      ['Sabado', 12.1],
-      ['Domingo', 11.8]
+      ['Lunes', lunes],
+      ['Martes', martes],
+      ['Miercoles', miercoles],
+      ['Jueves', jueves],
+      ['Viernes', viernes],
+      ['Sabado', sabado],
+      ['Domingo', domingo]
       ],
       dataLabels: {
       enabled: true,

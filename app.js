@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var dbConfig = require('./db');
 var mongoose = require('mongoose');
 // Connect to DB
-//mongoose.connect(dbConfig.url);
+mongoose.connect(dbConfig.url);
 
 var app = express();
 
@@ -22,6 +22,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Arduino read data
+fs = require('fs')
+fs.readFile('/home/pird-admin/Documentos/Express.js/learning-express-pug/public/json/data.json', 'utf8', function (err,data) {
+  if (err) {
+    return console.log(err);
+  }
+  var arduino = data;
+  console.log(a);
+});
 
 // Configuring Passport
 var passport = require('passport');
@@ -64,6 +74,5 @@ if (app.get('env') === 'development') {
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
 })
-
 
 module.exports = app;

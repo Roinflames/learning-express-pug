@@ -51,7 +51,7 @@ module.exports = function(passport){
 
 /* GET estado*/
 	router.get('/estado', function(req, res) {
-  	res.render('estado');
+  	res.render('estado-arduino');
 	});
 
 	router.get('/historico', function(req, res) {

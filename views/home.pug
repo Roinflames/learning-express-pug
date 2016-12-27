@@ -1,7 +1,15 @@
-
 extends layout
 
 block content
+  div
+    nav
+      .nav-wrapper
+        a.brand-logo(href='#') Logo
+        ul#nav-mobile.right.hide-on-med-and-down
+          li
+            a(href='estado') Estado
+          li
+            a(href='historico') Histórico
 
   div
     p Conexion Local (Estado)

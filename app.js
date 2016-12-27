@@ -24,7 +24,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Arduino read json data
-
 fs = require('fs')
 fs.readFile('/home/pird-admin/Documentos/Express.js/learning-express-pug/public/json/data.json', 'utf8', function (err,data) {
   if (err) {

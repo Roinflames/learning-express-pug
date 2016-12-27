@@ -51,7 +51,7 @@ module.exports = function(passport){
 
 /* GET estado*/
 	router.get('/estado', function(req, res) {
-  	res.render('estado-arduino');
+  	res.render('estado', { Lunes: arduino.dia.medicion.Lunes, Martes: arduino.dia.medicion.Martes, Miercoles:arduino.dia.medicion.Miercoles, Jueves: arduino.dia.medicion.Jueves, Viernes: arduino.dia.medicion.Viernes, Sabado: arduino.dia.medicion.Sabado, Domingo: arduino.dia.medicion.Domingo});
 	});
 
 	router.get('/historico', function(req, res) {
@@ -64,7 +64,8 @@ module.exports = function(passport){
 
 	router.get('/arduino', function(req, res){
 		res.render('arduino', { title: 'Hey', message: 'you'});
+		console.log("arduino");
 	});
-		
+
 	return router;
 }

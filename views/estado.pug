@@ -8,6 +8,15 @@ html
       ${demo.css}
     script(type='text/javascript').
       $(function () {
+
+      var lunes = #{Lunes};
+      var martes = #{Martes};
+      var miercoles = #{Miercoles};
+      var jueves = #{Jueves};
+      var viernes = #{Viernes};
+      var sabado = #{Sabado};
+      var domingo = #{Domingo};
+
       Highcharts.chart('container', {
       chart: {
       type: 'column'
@@ -16,7 +25,7 @@ html
       text: 'Energía generada'
       },
       subtitle: {
-      text: 'UTEM 2016-17'
+      text: 'UTEM 2016-17 - Arduino'
       },
       xAxis: {
       type: 'category',
@@ -43,13 +52,13 @@ html
       series: [{
       name: 'Dia',
       data: [
-      ['Lunes', 23.7],
-      ['Martes', 16.1],
-      ['Miercoles', 14.2],
-      ['Jueves', 14.0],
-      ['Viernes', 12.5],
-      ['Sabado', 12.1],
-      ['Domingo', 11.8]
+      ['Lunes', lunes],
+      ['Martes', martes],
+      ['Miercoles', miercoles],
+      ['Jueves', jueves],
+      ['Viernes', viernes],
+      ['Sabado', sabado],
+      ['Domingo', domingo]
       ],
       dataLabels: {
       enabled: true,

@@ -1,7 +1,12 @@
 html
-  #arduino
   head
     title= title
   body
     h1= title + ' ' + message
-    #{arduino}
+    p Lunes : #{arduino.dia.medicion.Lunes}
+    p Martes : #{arduino.dia.medicion.Martes}
+    p Miercoles : #{arduino.dia.medicion.Miercoles}
+    p Jueves : #{arduino.dia.medicion.Jueves}
+    p Viernes : #{arduino.dia.medicion.Viernes}
+    p Sabado : #{arduino.dia.medicion.Sabado}
+    p Domingo : #{arduino.dia.medicion.Domingo}

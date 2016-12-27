@@ -30,11 +30,15 @@ fs.readFile('/home/pird-admin/Documentos/Express.js/learning-express-pug/public/
   if (err) {
     return console.log(err);
   }
-  var arduino = JSON.parse(data);
+  arduino = JSON.parse(data), function(k, v) {
+    return props.hasOwnProperty(k) ? parseInt(v, 10) : v;}
+  //arduino = JSON.stringify(data);
   for (var i in arduino) {
+   console.log (arduino.dia.medicion);
+   console.log (typeof(arduino.dia.medicion));
    console.log (arduino.dia.medicion.Lunes);
-}
-  //console.log(result);
+   console.log (typeof(Number(arduino.dia.medicion.Lunes)));
+  }
 });
 
 var passport = require('passport');

@@ -5,7 +5,7 @@ block content
     .section
     main
       center
-        img.responsive-img(style='width: 250px;', src='http://i.imgur.com/ax0NCsK.gif')
+        img.responsive-img(style='', src='/img/neosolar')
         .section
         h5.light-blue-text Bienvenido al portal energía
         .section
@@ -30,5 +30,8 @@ block content
                 .row
                   button.col.s12.btn.btn-large.waves-effect.light-blue(type='submit', name='btn_login') Ingresar
         a(href='signup') Crear cuenta
+        #message
+        if message
+          h1.text-center.error-message.blue-text #{message}
       .section
       .section

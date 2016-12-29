@@ -2,7 +2,7 @@
   "dia" : {
     "medicion" : {
       "Lunes" : [
-        6
+        60
       ],
       "Martes" : [
         2
@@ -11,7 +11,7 @@
         1.75
       ],
       "Jueves" : [
-        1.75
+        60
       ],
       "Viernes" : [
         1.75

@@ -23,29 +23,18 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Arduino read json data
+// Arduino parse json data
 fs = require('fs')
 fs.readFile(__dirname+'/public/json/data.json', 'utf8', function (err,data) {
   if (err) {
     return console.log(err);
   }
-
   arduino = JSON.parse(data);
-  //, function(k, v) {
-    //return props.hasOwnProperty(k) ? parseInt(v, 10) : v;
-  //}
-
-  for (var i in arduino) {
-   console.log (arduino.dia.medicion);
-   console.log (typeof(arduino.dia.medicion));
-   console.log (arduino.dia.medicion.Lunes);
-   console.log (typeof(Number(arduino.dia.medicion.Lunes)));
-  }
 });
 
 var passport = require('passport');
 var expressSession = require('express-session');
-// TODO - Why Do we need this key ?
+
 app.use(expressSession({secret: 'mySecretKey'}));
 app.use(passport.initialize());
 app.use(passport.session());

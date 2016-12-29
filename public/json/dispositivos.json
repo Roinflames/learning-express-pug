@@ -1,0 +1,95 @@
+{
+  "model" : {
+    "dispositivo1" : {
+      "id" : [
+
+      ],
+      "nombre" : [
+
+      ],
+      "idUser" : [
+
+      ],
+      "location" : [
+
+      ],
+      "ip" : [
+
+      ],
+      "battery" : [
+
+      ],
+      "created" : [
+
+      ],
+      "updated" : [
+
+      ],
+      "enabled" : [
+
+      ]
+    }
+  },
+  "conectados" : {
+    "dispositivo1" : {
+      "id" : [
+
+      ],
+      "nombre" : [
+
+      ],
+      "idUser" : [
+
+      ],
+      "location" : [
+
+      ],
+      "ip" : [
+
+      ],
+      "battery" : [
+
+      ],
+      "created" : [
+
+      ],
+      "updated" : [
+
+      ],
+      "enabled" : [
+
+      ]
+    }
+  },
+  "desconectados" : {
+    "dispositivo1" : {
+      "id" : [
+
+      ],
+      "nombre" : [
+
+      ],
+      "idUser" : [
+
+      ],
+      "location" : [
+
+      ],
+      "ip" : [
+
+      ],
+      "battery" : [
+
+      ],
+      "created" : [
+
+      ],
+      "updated" : [
+
+      ],
+      "enabled" : [
+
+      ]
+    }
+  }
+}

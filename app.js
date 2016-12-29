@@ -25,13 +25,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Arduino read json data
 fs = require('fs')
-fs.readFile('/home/pird-admin/Documentos/Express.js/learning-express-pug/public/json/data.json', 'utf8', function (err,data) {
+fs.readFile(__dirname+'/public/json/data.json', 'utf8', function (err,data) {
   if (err) {
     return console.log(err);
   }
-  arduino = JSON.parse(data), function(k, v) {
-    return props.hasOwnProperty(k) ? parseInt(v, 10) : v;}
-  //arduino = JSON.stringify(data);
+
+  arduino = JSON.parse(data);
+  //, function(k, v) {
+    //return props.hasOwnProperty(k) ? parseInt(v, 10) : v;
+  //}
+
   for (var i in arduino) {
    console.log (arduino.dia.medicion);
    console.log (typeof(arduino.dia.medicion));

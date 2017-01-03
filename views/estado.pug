@@ -1,9 +1,11 @@
-doctype html
-html
-  head
+extends layout
+
+block content
+
     meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
     title Historico
     script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js')
+
     style(type='text/css').
       ${demo.css}
     script(type='text/javascript').
@@ -82,11 +84,15 @@ html
     title Battery API Demo
     link(href='https://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet')
     link(rel='stylesheet', href='assets/css/demo.css')
-  body
+    br
+    br
+    body
     script(src='https://code.highcharts.com/highcharts.js')
     script(src='https://code.highcharts.com/modules/exporting.js')
     #container(style='min-width: 300px; height: 400px; margin: 0 auto')
-    form(method='GET' action='/home')
+    br
+    br
+    form(method='GET' action='/home').center-align
       button.btn.btn-primary(type='submit') Hotspot
       button.btn.btn-primary(type='submit') Estado
       button.btn.btn-primary(type='submit') Configuracion

@@ -1,38 +1,13 @@
 extends layout
 
 block content
-    nav.light-blue.lighten-1(role='navigation')
-      .nav-wrapper.container
-        a#logo-container.brand-logo(href='#') Energía
-        ul.right.hide-on-med-and-down
-          li
-            a(href='estado') Estado
-          li
-            a(href='historico') Histórico
-          li
-            a(href='signout') Cerrar Sesión
-          li
-            a.right.dropdown-button.btn.light-blue(href='#', data-activates='dropdown1') -
-          // Dropdown Structure
-          ul#dropdown1.dropdown-content
-            li
-              a.white-text.light-blue(href='estado') one
-            li
-              a.white-text.light-blue(href='historico') two
-            li
-              a.white-text.light-blue(href='signout') three
 
-        ul#nav-mobile.side-nav
-          li
-            a(href='#') Navbar Link
-        a.button-collapse(href='#', data-activates='nav-mobile')
-          i.material-icons menu
     #index-banner.section.no-pad-bot
       .container
         br
         br
+        h1.header.center.orange-text Centro de Datos
         p#lectura.center.orange-text Potencia medida : #{lectura} Watt
-        //h1.header.center.orange-text Starter Template
         //.row.center
           h5.header.col.s12.light A modern responsive front-end framework based on Material Design
         //.row.center
@@ -49,21 +24,22 @@ block content
                 i.material-icons group
               h5.center Hotspots
               p.light.center-align
-                | Especifica los puntos de conexión disponibles para el monitoreo de datos en unidades locales o remotas de medición fotovoltaica.
+                | Especifica el listado de puntos de conexión disponibles para el monitoreo de datos en unidades locales o remotas de medición fotovoltaica.
+                | Seleccione un dispositivo para el acceso a la información.
           .col.s12.m4
             .icon-block
               h2.center.light-blue-text
                 i.material-icons flash_on
               h5.center Estado
               p.light.center-align
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                | Muestra los valores correspondientes a las variables de potencia, energía generada, estado de carga de baterías y ahorro energético.
           .col.s12.m4
             .icon-block
               h2.center.light-blue-text
                 i.material-icons settings
               h5.center Configuración
               p.light.center-align
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                | Identificación del dispositivo y valores de regulación
       br
       br
       .section
@@ -96,6 +72,7 @@ block content
                 a.white-text(href='#!') Link 3
               li
                 a.white-text(href='#!') Link 4
+
       .footer-copyright
         .container
           | Made by

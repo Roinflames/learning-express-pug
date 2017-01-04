@@ -1,0 +1,153 @@
+extends layout
+
+block content
+
+  #panel.section
+    .container
+
+        // Icon Section
+        .row
+          .col.s12.m4.l4
+            .icon-block.center
+              h4.light-blue-text
+                i.material-icons brightness_low
+              h5 Paneles
+              table.bordered.centered.striped
+                thead
+                  tr
+                    th(data-field='id') Variable
+                    th(data-field='value') Valor
+                tbody
+                  tr
+                    td V(in)
+                    td #{lectura}
+                  tr
+                    td V(out)
+                    td #{lectura/2}
+                  tr
+                    td I(in)
+                    td #{lectura/6}
+                  tr
+                    td V(out)
+                    td #{lectura/8}
+
+          .col.s12.m4.l4
+            .icon-block.center
+              h4.light-blue-text
+                i.material-icons device_hub
+              h5 Reg. de Carga
+              table.bordered.centered.striped
+                thead
+                  tr
+                    th(data-field='id') Variable
+                    th(data-field='value') Valor
+                tbody
+                  tr
+                    td V(in)
+                    td #{lectura}
+                  tr
+                    td V(out)
+                    td #{lectura/2}
+                  tr
+                    td I(in)
+                    td #{lectura/3}
+                  tr
+                    td V(out)
+                    td #{lectura/4}
+
+          .col.s12.m4.l4
+            .icon-block.center
+              h4.light-blue-text
+                i.material-icons crop_rotate
+              h5 Inversor
+              table.bordered.centered.striped
+                thead
+                  tr
+                    th(data-field='id') Variable
+                    th(data-field='value') Valor
+                tbody
+                  tr
+                    td V(in)
+                    td #{lectura}
+                  tr
+                    td V(out)
+                    td #{lectura*5}
+                  tr
+                    td I(in)
+                    td #{lectura*2}
+                  tr
+                    td V(out)
+                    td #{lectura/7}
+
+        .row
+          .col.s12.m4
+            .icon-block.center
+              h4.light-blue-text
+                i.material-icons flash_on
+              h5 Cargas
+              table.bordered.centered.striped
+                thead
+                  tr
+                    th(data-field='id') Variable
+                    th(data-field='value') Valor
+                tbody
+                  tr
+                    td V(in)
+                    td #{lectura*4}
+                  tr
+                    td V(out)
+                    td #{lectura*3}
+                  tr
+                    td I(in)
+                    td #{lectura/5}
+                  tr
+                    td V(out)
+                    td #{lectura/3}
+
+          .col.s12.m4
+            .icon-block.center
+              h4.light-blue-text
+                i.material-icons battery_charging_full
+              h5 Baterias
+              table.bordered.centered.striped
+                thead
+                  tr
+                    th(data-field='id') Variable
+                    th(data-field='value') Valor
+                tbody
+                  tr
+                    td V(in)
+                    td #{lectura*2}
+                  tr
+                    td V(out)
+                    td #{lectura/2}
+                  tr
+                    td I(in)
+                    td #{lectura*3}
+                  tr
+                    td V(out)
+                    td #{lectura/3}
+
+          .col.s12.m4
+            .icon-block.center
+              h4.light-blue-text
+                i.material-icons power
+              h5 Fuente Alterna
+              table.bordered.centered.striped
+                thead
+                  tr
+                    th(data-field='id') Variable
+                    th(data-field='value') Valor
+                tbody
+                  tr
+                    td V(in)
+                    td #{lectura*2}
+                  tr
+                    td V(out)
+                    td #{lectura*3}
+                  tr
+                    td I(in)
+                    td #{lectura/4}
+                  tr
+                    td V(out)
+                    td #{lectura/6}

@@ -5,6 +5,12 @@ var serialport = require('serialport');
 var SerialPort = serialport.SerialPort;
 var dato;
 
+var port = new SerialPort('/dev/ttyUSB0');
+port.on('data', function (data) {
+console.log('Data: ' + data);
+dato = JSON.parse(data);
+console.log(dato);
+});
 
 var isAuthenticated = function (req, res, next) {
 	// if user is authenticated in the session, call the next() to call the next request handler
@@ -19,14 +25,15 @@ var isAuthenticated = function (req, res, next) {
 module.exports = function(passport){
 	/* GET Home Page */
 	router.get('/home', isAuthenticated, function(req, res){
-		var port = new SerialPort('/dev/ttyUSB0');
-		port.on('data', function (data) {
+		//var port = new SerialPort('/dev/ttyUSB0');
+		//port.on('data', function (data) {
 		//console.log('Data: ' + data);
-		dato = JSON.parse(data);
+		//dato = JSON.parse(data);
 		//console.log(dato);
-		});
-		res.render('home-mat', { user: req.user, lectura: dato});
-		console.log(dato);
+		//});
+		//res.render('home-mat', { user: req.user, lectura: dato});
+		res.render('home-mat', { user: req.user});
+		//console.log(dato);
 	});
 
 	router.post('/', function(req, res) {
@@ -72,6 +79,11 @@ module.exports = function(passport){
 
 	router.get('/historico', function(req, res) {
   	res.render('historico');
+	});
+
+	router.get('/estacion', function(req, res) {
+  	//res.render('estacion');
+		res.render('estacion', {lectura: dato});
 	});
 
 	router.get('/perfil', isAuthenticated, function(req, res){

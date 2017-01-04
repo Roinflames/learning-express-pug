@@ -6,64 +6,66 @@ block content
     meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
     title Highcharts Example
     script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js')
-    style(type='text/css').
-      ${demo.css}
     script(type='text/javascript').
       $(function () {
       $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data) {
       Highcharts.chart('container', {
-      chart: {
-      zoomType: 'x'
-      },
-      title: {
-      text: 'Energia Generada'
-      },
-      subtitle: {
-      //text: document.ontouchstart === undefined ?
-      //'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
-      },
-      xAxis: {
-      type: 'datetime'
-      },
-      yAxis: {
-      title: {
-      text: 'Exchange rate'
-      }
-      },
-      legend: {
-      enabled: false
-      },
-      plotOptions: {
-      area: {
-      fillColor: {
-      linearGradient: {
-      x1: 0,
-      y1: 0,
-      x2: 0,
-      y2: 1
-      },
-      stops: [
-      [0, Highcharts.getOptions().colors[0]],
-      [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-      ]
-      },
-      marker: {
-      radius: 2
-      },
-      lineWidth: 1,
-      states: {
-      hover: {
-      lineWidth: 1
-      }
-      },
-      threshold: null
-      }
-      },
-      series: [{
-      type: 'area',
-      name: 'USD to EUR',
-      data: data
-      }]
+        //Inicio datos gráfico
+        chart: {
+          zoomType: 'x'
+        },
+        title: {
+          text: 'Energia Generada'
+        },
+        subtitle: {
+          //text: document.ontouchstart === undefined ?
+          //'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
+        },
+        xAxis: {
+          type: 'datetime'
+        },
+        yAxis: {
+          title: {
+            text: 'Potencia (W)'
+            }
+        },
+        //Fin datos gráfico
+        legend: {
+          enabled: false
+        },
+        // plotOptions
+        plotOptions: {
+          area: {
+            fillColor: {
+              linearGradient: {
+                x1: 0,
+                y1: 0,
+                x2: 0,
+                y2: 1
+              },
+              stops: [
+              [0, Highcharts.getOptions().colors[0]],
+              [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+              ]
+            },
+            marker: {
+              radius: 2
+            },
+            lineWidth: 1,
+            states: {
+              hover: {
+                lineWidth: 1
+              }
+            },
+            threshold: null
+          }
+        },
+        //end plotOptions
+        series: [{
+        type: 'area',
+        name: 'Energía Generada',
+        data: data
+        }]
       });
       });
       });

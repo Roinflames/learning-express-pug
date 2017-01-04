@@ -29,18 +29,10 @@ fs.readFile(__dirname+'/public/json/data.json', 'utf8', function (err,data) {
   if (err) {
     return console.log(err);
   }
-
   arduino = JSON.parse(data);
   //, function(k, v) {
     //return props.hasOwnProperty(k) ? parseInt(v, 10) : v;
   //}
-
-  for (var i in arduino) {
-   console.log (arduino.dia.medicion);
-   console.log (typeof(arduino.dia.medicion));
-   console.log (arduino.dia.medicion.Lunes);
-   console.log (typeof(Number(arduino.dia.medicion.Lunes)));
-  }
 });
 
 var passport = require('passport');

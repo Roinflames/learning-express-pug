@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-//var serialport = require('serialport');
-//	var port = new SerialPort('/dev/ttyUSB0');
+var serialport = require('serialport');
+var SerialPort = serialport.SerialPort;
 var dato;
 
 
@@ -19,14 +19,14 @@ var isAuthenticated = function (req, res, next) {
 module.exports = function(passport){
 	/* GET Home Page */
 	router.get('/home', isAuthenticated, function(req, res){
-		//port.on('data', function (data) {
+		var port = new SerialPort('/dev/ttyUSB0');
+		port.on('data', function (data) {
 		//console.log('Data: ' + data);
-		//dato = JSON.parse(data);
+		dato = JSON.parse(data);
 		//console.log(dato);
-		//});
-		//res.render('home-mat', { user: req.user, lectura: dato});
-		res.render('home-mat', { user: req.user});
-		//console.log(dato);
+		});
+		res.render('home-mat', { user: req.user, lectura: dato});
+		console.log(dato);
 	});
 
 	router.post('/', function(req, res) {
@@ -71,7 +71,7 @@ module.exports = function(passport){
 	});
 
 	router.get('/historico', function(req, res) {
-  	res.render('historico-plus');
+  	res.render('historico');
 	});
 
 	router.get('/perfil', isAuthenticated, function(req, res){

@@ -7,9 +7,9 @@ var dato;
 
 var port = new SerialPort('/dev/ttyUSB0');
 port.on('data', function (data) {
-console.log('Data: ' + data);
+//console.log('Data: ' + data);
 dato = JSON.parse(data);
-console.log(dato);
+//console.log(dato);
 });
 
 var isAuthenticated = function (req, res, next) {

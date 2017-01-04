@@ -39,6 +39,10 @@ html
                 .row
                   button.col.s12.btn.btn-large.waves-effect.light-blue(type='submit', name='btn_login') Ingresar
         a(href='signup') Crear cuenta
+        #message
+        if message
+        h1.text-center.error-message #{message}
+
       .section
       .section
 

@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var login = require('./usuario');
 
 var serialport = require('serialport');
 var SerialPort = serialport.SerialPort;
@@ -73,15 +74,15 @@ module.exports = function(passport){
 	});
 
 /* GET estado*/
-	router.get('/estado', function(req, res) {
+	router.get('/estado', isAuthenticated, function(req, res) {
   	res.render('estado', { Lunes: arduino.dia.medicion.Lunes, Martes: arduino.dia.medicion.Martes, Miercoles:arduino.dia.medicion.Miercoles, Jueves: arduino.dia.medicion.Jueves, Viernes: arduino.dia.medicion.Viernes, Sabado: arduino.dia.medicion.Sabado, Domingo: arduino.dia.medicion.Domingo});
 	});
 
-	router.get('/historico', function(req, res) {
+	router.get('/historico', isAuthenticated, function(req, res) {
   	res.render('historico');
 	});
 
-	router.get('/estacion', function(req, res) {
+	router.get('/estacion', isAuthenticated, function(req, res) {
   	//res.render('estacion');
 		res.render('estacion', {lectura: dato});
 	});
@@ -90,7 +91,7 @@ module.exports = function(passport){
 		res.render('perfil', { user: req.user });
 	});
 
-	router.get('/arduino', function(req, res){
+	router.get('/arduino', isAuthenticated, function(req, res){
 		res.render('arduino', { title: 'Hey', message: 'you'});
 		console.log("arduino");
 	});

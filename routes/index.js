@@ -1,18 +1,21 @@
 var express = require('express');
 var router = express.Router();
-var login = require('./usuario');
 
+/*==============================================================================
+                              Lectura datos serialport
+==============================================================================*/
 var serialport = require('serialport');
 var SerialPort = serialport.SerialPort;
 var dato;
-
 var port = new SerialPort('/dev/ttyUSB0');
 port.on('data', function (data) {
 //console.log('Data: ' + data);
 dato = JSON.parse(data);
 //console.log(dato);
 });
+/*==============================================================================
 
+==============================================================================*/
 var isAuthenticated = function (req, res, next) {
 	// if user is authenticated in the session, call the next() to call the next request handler
 	// Passport adds this method to request object. A middleware is allowed to add properties to

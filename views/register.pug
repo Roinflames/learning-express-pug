@@ -3,15 +3,14 @@ extends layout-nonav
 block content
     div.container
       div.row
-        div.col-sm-6.col-md-4.col-md-offset-4
-          h1.center-align.login-title Registro de Usuario
-            div.signup-wall
-              img(class='profile-img', src='https://ftorres19.files.wordpress.com/2011/12/utem1.png?w=614')
+        div.col-sm-6.col-md-4
+            div.signup-wall.center-align
+              img.responsive-img(style='width: 300px', src='../img/neosolar.jpeg')
+              h5.orange-text Registro de Usuario
               form(class='form-signin', action='/signup', method='POST')
                 input(type='text', name='username', class='form-control', placeholder='Nombre',required, autofocus)
                 input(type='email', name='email', class='form-control', placeholder='Email',required)
                 input(type='password', name='password', class='form-control nomargin', placeholder='Password', required)
-                p
                 button(class='btn btn-lg btn-primary btn-block', type='submit') Registrar
                 p
                 a(href='/', class='text-center') Volver

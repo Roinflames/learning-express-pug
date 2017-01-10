@@ -1,29 +1,51 @@
+/*==============================================================================
+                              Configuración paquetes
+  Express:
+  path:
+  favicon:
+  logger:
+  cookieParser:
+  bodyParser:
+==============================================================================*/
 var express = require('express');
 var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+/*==============================================================================
+                              Configuración BDD
+==============================================================================*/
 var dbConfig = require('./db');
 var mongoose = require('mongoose');
-// Connect to DB
 mongoose.connect(dbConfig.url);
-
+/*==============================================================================
+                              Configuración vistas
+app.set:
+path.join
+==============================================================================*/
 var app = express();
-
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-
+/*==============================================================================
+                              Configuración
+app.use:
+logger:
+bodyParser:
+cookieParser:
+express.static:
+path.join:
+==============================================================================*/
 //app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-// Arduino read json data
+/*==============================================================================
+                              Lectura de datos
+fs: filesystem
+==============================================================================*/
 fs = require('fs')
 fs.readFile(__dirname+'/public/json/data.json', 'utf8', function (err,data) {
   if (err) {
@@ -34,22 +56,26 @@ fs.readFile(__dirname+'/public/json/data.json', 'utf8', function (err,data) {
     //return props.hasOwnProperty(k) ? parseInt(v, 10) : v;
   //}
 });
-
+/*==============================================================================
+                              Passport
+==============================================================================*/
 var passport = require('passport');
 var expressSession = require('express-session');
 // TODO - Why Do we need this key ?
 app.use(expressSession({secret: 'mySecretKey'}));
 app.use(passport.initialize());
 app.use(passport.session());
-
- // Using the flash middleware provided by connect-flash to store messages in session
- // and displaying in templates
-var flash = require('connect-flash');
-app.use(flash());
-
 // Initialize Passport
 var initPassport = require('./passport/init');
 initPassport(passport);
+/*==============================================================================
+ // Using the flash middleware provided by connect-flash to store messages in session
+ // and displaying in templates
+
+ CONTINUAR AQUI
+ ==============================================================================*/
+var flash = require('connect-flash');
+app.use(flash());
 
 var routes = require('./routes/index')(passport);
 app.use('/', routes);

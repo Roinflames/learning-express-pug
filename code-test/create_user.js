@@ -11,13 +11,13 @@ var password = args[1];
 var email = args[2];
 
 if (args.length < 2) {
-    console.log("usage: node %s %s %s", path.basename(process.argv[1]), "user", "password");
+    console.log("usage: node %s %s %s", path.basename(process.argv[1]), "user", "password", "email");
     process.exit();
 }
 
 console.log("Username: %s", username);
 console.log("Password: %s", password);
-
+console.log("Email: %s", email);
 console.log("Creating a new user in Mongo");
 
 

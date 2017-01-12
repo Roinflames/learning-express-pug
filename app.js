@@ -16,7 +16,7 @@ var bodyParser = require('body-parser');
 /*==============================================================================
                               Configuración BDD
 ==============================================================================*/
-var dbConfig = require('./db');
+var dbConfig = require('./config/db');
 var mongoose = require('mongoose');
 mongoose.connect(dbConfig.url);
 /*==============================================================================

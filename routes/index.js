@@ -4,7 +4,7 @@ var router = express.Router();
 /*==============================================================================
                               Lectura datos serialport
 ==============================================================================*/
-var serialport = require('serialport');
+/*var serialport = require('serialport');
 var SerialPort = serialport.SerialPort;
 var dato;
 var port = new SerialPort('/dev/ttyUSB0');
@@ -28,7 +28,8 @@ var isAuthenticated = function (req, res, next) {
 
 module.exports = function(passport){
 	/* GET Home Page */
-	router.get('/home', isAuthenticated, function(req, res){
+	router.get('/home', function(req, res){
+
 		//var port = new SerialPort('/dev/ttyUSB0');
 		//port.on('data', function (data) {
 		//console.log('Data: ' + data);
@@ -77,24 +78,25 @@ module.exports = function(passport){
 	});
 
 /* GET estado*/
-	router.get('/estado', isAuthenticated, function(req, res) {
+	router.get('/estado', function(req, res) {
   	res.render('estado', { Lunes: arduino.dia.medicion.Lunes, Martes: arduino.dia.medicion.Martes, Miercoles:arduino.dia.medicion.Miercoles, Jueves: arduino.dia.medicion.Jueves, Viernes: arduino.dia.medicion.Viernes, Sabado: arduino.dia.medicion.Sabado, Domingo: arduino.dia.medicion.Domingo});
 	});
 
-	router.get('/historico', isAuthenticated, function(req, res) {
+	router.get('/historico', function(req, res) {
   	res.render('historico');
 	});
 
-	router.get('/estacion', isAuthenticated, function(req, res) {
+	router.get('/estacion', function(req, res) {
   	//res.render('estacion');
+		var dato = "sample";
 		res.render('estacion', {lectura: dato});
 	});
 
-	router.get('/perfil', isAuthenticated, function(req, res){
+	router.get('/perfil', function(req, res){
 		res.render('perfil', { user: req.user });
 	});
 
-	router.get('/arduino', isAuthenticated, function(req, res){
+	router.get('/arduino', function(req, res){
 		res.render('arduino', { title: 'Hey', message: 'you'});
 		console.log("arduino");
 	});

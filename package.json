@@ -20,6 +20,7 @@
     "pug": "^2.0.0-beta6",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
-    "static-favicon": "~1.0.0"
+    "static-favicon": "~1.0.0",
+    "passport-jwt": "^2.2.1"
   }
 }

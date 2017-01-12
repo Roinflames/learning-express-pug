@@ -3,7 +3,7 @@ extends layout
 block content
 
   #panel.section
-    .container
+    .container.blue-grey.lighten-4
 
         // Icon Section
         .row
@@ -19,20 +19,28 @@ block content
                   tr
                     th(data-field='id') Variable
                     th(data-field='value') Valor
+                    th(data-field='mount') Magnitud
                 tbody
                   tr
-                    td V(in)
+                    td Estado
+                    td Ok/NoOk
+                    td
+                  tr
+                    td Radiación (in)
                     td #{lectura}
+                    td
                   tr
-                    td V(out)
-                    td #{lectura/2}
+                    td Energía (out)
+                    td #{lectura}
+                    td Watt
                   tr
-                    td I(in)
-                    td #{lectura/6}
+                    td Voltaje (out)
+                    td #{lectura}
+                    td Volt
                   tr
-                    td V(out)
-                    td #{lectura/8}
-
+                    td Intensidad (out)
+                    td #{lectura}
+                    td Ampere
           .col.s12.m4.l4
             .icon-block.center
               h4.light-blue-text
@@ -43,19 +51,32 @@ block content
                   tr
                     th(data-field='id') Variable
                     th(data-field='value') Valor
+                    th(data-field='mount') Magnitud
                 tbody
+                  tr
+                    td Estado
+                    td Ok/NoOk
+                    td
+                  tr
+                    td Carga
+                    td Batería/Inversor/Mix
+                    td
                   tr
                     td V(in)
                     td #{lectura}
+                    td Volt
                   tr
                     td V(out)
-                    td #{lectura/2}
+                    td #{lectura}
+                    td Volt
                   tr
                     td I(in)
-                    td #{lectura/3}
+                    td #{lectura}
+                    td Ampere
                   tr
-                    td V(out)
-                    td #{lectura/4}
+                    td I(out)
+                    td #{lectura}
+                    td Ampere
 
           .col.s12.m4.l4
             .icon-block.center
@@ -67,19 +88,28 @@ block content
                   tr
                     th(data-field='id') Variable
                     th(data-field='value') Valor
+                    th(data-field='mount') Magnitud
                 tbody
                   tr
-                    td V(in)
+                    td Estado
+                    td Ok/NoOk
+                    td
+                  tr
+                    td V (in)
                     td #{lectura}
+                    td Volt
                   tr
-                    td V(out)
-                    td #{lectura*5}
+                    td V (out)
+                    td #{lectura}
+                    td Volt
                   tr
-                    td I(in)
-                    td #{lectura*2}
+                    td I (in)
+                    td #{lectura}
+                    td Ampere
                   tr
-                    td V(out)
-                    td #{lectura/7}
+                    td I(out)
+                    td #{lectura}
+                    td Ampere
 
         .row
           .col.s12.m4
@@ -93,19 +123,32 @@ block content
                   tr
                     th(data-field='id') Variable
                     th(data-field='value') Valor
+                    th(data-field='mount') Magnitud
                 tbody
                   tr
-                    td V(in)
-                    td #{lectura*4}
+                    td Estado
+                    td Ok/NoOk
+                    td
                   tr
-                    td V(out)
-                    td #{lectura*3}
+                    td Instalado
+                    td #{lectura}
+                    td W/hora
                   tr
-                    td I(in)
-                    td #{lectura/5}
+                    td V (in)
+                    td #{lectura}
+                    td Volt
                   tr
-                    td V(out)
-                    td #{lectura/3}
+                    td V (out)
+                    td #{lectura}
+                    td Volt
+                  tr
+                    td I (in)
+                    td #{lectura}
+                    td Ampere
+                  tr
+                    td I (out)
+                    td #{lectura}
+                    td Ampere
 
           .col.s12.m4
             .icon-block.center
@@ -117,40 +160,62 @@ block content
                   tr
                     th(data-field='id') Variable
                     th(data-field='value') Valor
+                    th(data-field='mount') Magnitud
                 tbody
                   tr
-                    td V(in)
-                    td #{lectura*2}
+                    td Estado
+                    td Carga/Consumo
+                    td
                   tr
-                    td V(out)
-                    td #{lectura/2}
+                    td % Carga
+                    td #{lectura}
+                    td
                   tr
-                    td I(in)
-                    td #{lectura*3}
+                    td V (in)
+                    td #{lectura}
+                    td Volt
                   tr
-                    td V(out)
-                    td #{lectura/3}
+                    td V (out)
+                    td #{lectura}
+                    td Volt
+                  tr
+                    td I (in)
+                    td #{lectura}
+                    td Ampere
+                  tr
+                    td I (out)
+                    td #{lectura}
+                    td Ampere
 
           .col.s12.m4
             .icon-block.center
               h4.light-blue-text
                 i.material-icons power
-              h5 Fuente Alterna
+              h5 Fuente Convencional
               table.bordered.centered.striped
                 thead
                   tr
                     th(data-field='id') Variable
                     th(data-field='value') Valor
+                    th(data-field='mount') Magnitud
                 tbody
                   tr
-                    td V(in)
-                    td #{lectura*2}
+                    td Estado
+                    td Ok/NoOk
+                    td
                   tr
-                    td V(out)
-                    td #{lectura*3}
+                    td V (in)
+                    td #{lectura}
+                    td Volt
                   tr
-                    td I(in)
-                    td #{lectura/4}
+                    td V (out)
+                    td #{lectura}
+                    td Volt
                   tr
-                    td V(out)
-                    td #{lectura/6}
+                    td I (in)
+                    td #{lectura}
+                    td Ampere
+                  tr
+                    td I (out)
+                    td #{lectura}
+                    td Ampere

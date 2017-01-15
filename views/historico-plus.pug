@@ -3,9 +3,11 @@ extends layout
 block content
     br
     br
-    script(type='text/javascript').
+    script(type='text/javascript')
       $(function () {
-      $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=large-dataset.json&callback=?', function (data) {
+        // get que devuelve json. func hecha en php lado servidor
+      var res = $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=large-dataset.json&callback=?', function (data) {
+        console.log(res);
       // Create a timer
       var start = +new Date();
       // Create the chart

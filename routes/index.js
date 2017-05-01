@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-
+var express = require('express')
+var router = express.Router()
+var home = require('../controllers/home')
 /*==============================================================================
                               Lectura datos serialport
 ==============================================================================*/
@@ -29,21 +29,7 @@ var isAuthenticated = function (req, res, next) {
 module.exports = function(passport){
 	/* GET Home Page */
 	router.get('/home', isAuthenticated, function(req, res){
-
-		//var port = new SerialPort('/dev/ttyUSB0');
-		//port.on('data', function (data) {
-		//console.log('Data: ' + data);
-		//dato = JSON.parse(data);
-		//console.log(dato);
-		//});
-		//res.render('home-mat', { user: req.user, lectura: dato});
 		res.render('home-mat', { user: req.user});
-		//console.log(dato);
-	});
-
-	router.post('/', function(req, res) {
-    	// Display the Login page with any flash message, if any
-		console.log('index view');
 	});
 
 	/* GET login page. */
@@ -96,13 +82,17 @@ module.exports = function(passport){
 		res.render('perfil', { user: req.user });
 	});
 
-	router.get('/ingresar', isAuthenticated, function(req, res){
+	router.get('/ingresar', function(req, res){
 		res.render('ingresar');
 	});
 
 	router.get('/arduino', isAuthenticated, function(req, res){
 		res.render('arduino', { title: 'Hey', message: 'you'});
 		console.log("arduino");
+	});
+
+	router.get('/realtime', isAuthenticated, function(req, res){
+		res.render('realtime');
 	});
 
 	return router;

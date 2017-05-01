@@ -9,6 +9,13 @@ block content
     script(type='text/javascript').
       $(function () {
       $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data) {
+
+      Highcharts.setOptions({
+         global: {
+             useUTC: false
+         }
+      });
+
       Highcharts.chart('container', {
         //Inicio datos gráfico
         chart: {

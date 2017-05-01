@@ -13,6 +13,7 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var port = 3000;
 /*==============================================================================
                               Configuración BDD
 ==============================================================================*/
@@ -98,8 +99,8 @@ if (app.get('env') === 'development') {
         });
     });
 }
-app.listen(3000, function () {
-  console.log('Escuchando en puerto 3000!')
+app.listen(port, function () {
+  console.log('Escuchando en el puerto ' + port + '!')
 })
 
 module.exports = app;

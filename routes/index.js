@@ -1,24 +1,28 @@
 var express = require('express')
 var router = express.Router()
-var home = require('../controllers/home')
+
 /*==============================================================================
                               Lectura datos serialport
 ==============================================================================*/
-var split = require('split');
-process.stdin.pipe(split()).pipe(process.stdout);
-var serialport = require('serialport');
-var SerialPort = serialport.SerialPort;
-var dato;
-var port = new SerialPort('/dev/ttyACM0');
-port.on('data', function (data) {
-//console.log('Data: ' + data);
-	dato = data.toString().split("\r");
-	dato = dato.toString().split("\n");
-	dato = dato.toString().split(",");
+/*var split = require('split');
+process.stdin.pipe(split()).pipe(process.stdout);*/
+	var numeral = require('numeral');
+	var serialport = require('serialport');
+	var SerialPort = serialport.SerialPort;
+	var port = new SerialPort('/dev/ttyACM0');
+	var buffer;
+	var dato;
 
-	console.log(dato)
+	port.on('data', function (data) {
+		var buffer = Buffer.alloc(1)
+		buffer = Number(data)
 
-});
+		if (buffer != 0 && buffer < 10) {
+				buffer = numeral(buffer).format('0.00');
+				console.log(buffer);
+				dato = buffer
+		}
+	});
 /*==============================================================================
 
 ==============================================================================*/
@@ -79,7 +83,7 @@ module.exports = function(passport){
 	});
 
 	router.get('/estacion', isAuthenticated, function(req, res) {
-		res.render('estacion', { lectura : dato});
+		res.render('estacion', { lectura : dato });
 	});
 
 	router.get('/perfil', isAuthenticated, function(req, res){
@@ -91,7 +95,7 @@ module.exports = function(passport){
 	});
 
 	router.get('/realtime', isAuthenticated, function(req, res){
-		res.render('realtime');
+			res.render('realtime', { lectura : dato });
 	});
 
 	return router;

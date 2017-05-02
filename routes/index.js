@@ -4,14 +4,20 @@ var home = require('../controllers/home')
 /*==============================================================================
                               Lectura datos serialport
 ==============================================================================*/
-/*var serialport = require('serialport');
+var split = require('split');
+process.stdin.pipe(split()).pipe(process.stdout);
+var serialport = require('serialport');
 var SerialPort = serialport.SerialPort;
 var dato;
-var port = new SerialPort('/dev/ttyUSB0');
+var port = new SerialPort('/dev/ttyACM0');
 port.on('data', function (data) {
 //console.log('Data: ' + data);
-dato = JSON.parse(data);
-//console.log(dato);
+	dato = data.toString().split("\r");
+	dato = dato.toString().split("\n");
+	dato = dato.toString().split(",");
+
+	console.log(dato)
+
 });
 /*==============================================================================
 
@@ -73,9 +79,7 @@ module.exports = function(passport){
 	});
 
 	router.get('/estacion', isAuthenticated, function(req, res) {
-  	//res.render('estacion');
-		var dato = "sample";
-		res.render('estacion', {lectura: dato});
+		res.render('estacion', { lectura : dato});
 	});
 
 	router.get('/perfil', isAuthenticated, function(req, res){
@@ -84,11 +88,6 @@ module.exports = function(passport){
 
 	router.get('/ingresar', function(req, res){
 		res.render('ingresar');
-	});
-
-	router.get('/arduino', isAuthenticated, function(req, res){
-		res.render('arduino', { title: 'Hey', message: 'you'});
-		console.log("arduino");
 	});
 
 	router.get('/realtime', isAuthenticated, function(req, res){
